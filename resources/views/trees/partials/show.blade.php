@@ -7,15 +7,44 @@
 @endphp
 
 @if(count($filteredChildren) > 0)
-
-<span>{{$tree->text}}</span>
+<div class="element"> 
+    <i class="fas fa-angle-down"></i>
+    <span>{{$tree->text}}</span>
+    <div class="element__divider"></div>
+    <div class="element__icons">
+        <p>
+            <i class="fas fa-plus"></i>
+        </p>
+        <p>
+            <i class="fas fa-edit"></i>
+        </p>
+         <p>
+            <i class="fas fa-trash"></i>
+        </p>
+    </div>
+</div>
     @foreach ($treeChildren as $tc)
     @if($tc->parentID !=null)
-    <ul class="nested">
+    <div class="nested">
         @include('trees.partials.show',['tree'=> $tc])
-    </ul>
+    </div>
         @endif
     @endforeach
 @else 
-<span>{{$tree->text}}</span>
+<div class="element">
+    <i class="far fa-circle"></i>
+    <span>{{$tree->text}}</span>
+    <div class="element__divider"></div>
+    <div class="element__icons">
+        <p>
+            <i class="fas fa-plus"></i>
+        </p>
+        <p>
+            <i class="fas fa-edit"></i>
+        </p>
+         <p>
+            <i class="fas fa-trash"></i>
+        </p>
+    </div>
+</div>
 @endif
