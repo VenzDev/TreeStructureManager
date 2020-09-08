@@ -6,6 +6,7 @@
 
 @section('content')
     <div class="wrapper">
+        <h2 class="wrapper__title">Delete Element</h2>
         <form class="wrapper__form" method="POST" action="{{ route('trees.destroy',["tree"=>$tree]) }}">
             @csrf
             @method('DELETE')
