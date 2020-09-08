@@ -18,7 +18,10 @@
                 @foreach ($selectTree as $t)
                     <option {{$tree->parentID == $t->id ? "selected" : "" }} value={{$t->id}}>{{$t->text}}</option>
                 @endforeach    
-            </select>            
+            </select>      
+            @if ($errors->any())
+                <p class="wrapper__error">Input cannot be empty!</p>
+            @endif      
         </div>
         <button class="wrapper__button" type="submit">Create!</button>
     </form>

@@ -40,7 +40,8 @@
         }
     }
 
-    &__warning {
+    &__warning,
+    &__error {
         color: red;
     }
 

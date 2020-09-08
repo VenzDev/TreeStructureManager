@@ -60,7 +60,8 @@
   margin-bottom: 0.5rem;
 }
 
-.wrapper__warning {
+.wrapper__warning,
+.wrapper__error {
   color: red;
 }
 

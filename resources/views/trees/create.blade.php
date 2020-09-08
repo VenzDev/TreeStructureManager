@@ -9,6 +9,9 @@
                 <label>ELement Name</label>
                 <br>
                 <input type="text" name="text"/>
+                @if ($errors->any())
+                    <p class="wrapper__error">Input cannot be empty!</p>
+                @endif
             </div>
             <button class="wrapper__button" type="submit">Create!</button>
         </form>
