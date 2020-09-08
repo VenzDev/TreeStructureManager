@@ -4,6 +4,13 @@
   box-sizing: border-box;
   font-family: "Fira Sans", sans-serif;
   outline: none;
+  text-decoration: none;
+}
+
+*:visited,
+*:active,
+*:link {
+  color: inherit;
 }
 
 .wrapper {
@@ -13,10 +20,51 @@
   background-color: #f3f5f8;
 }
 
+.wrapper__title {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.wrapper__form {
+  padding: 1rem;
+  margin: 2rem auto;
+  border: 10px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  border-radius: 10px;
+  background-color: white;
+  height: 200px;
+}
+
+.wrapper__input {
+  padding: 1rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.wrapper__input label {
+  padding-left: 1rem;
+  font-size: 0.8rem;
+}
+
+.wrapper__input input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid gray;
+}
+
+.wrapper__input button {
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+}
+
 .wrapper__button {
   display: block;
   margin: 0 auto;
   border: none;
+  text-align: center;
   border-radius: 23px;
   background-color: blue;
   color: white;
@@ -70,7 +118,7 @@
   justify-content: space-around;
 }
 
-.wrapper .element__icons p {
+.wrapper .element__icons a {
   background-color: blue;
   width: 30px;
   color: white;
@@ -86,7 +134,7 @@
   box-shadow: 0px 6px 12px rgba(0, 0, 255, 0.3);
 }
 
-.wrapper .element__icons p:hover {
+.wrapper .element__icons a:hover {
   box-shadow: 0px 6px 12px rgba(0, 0, 255, 0.6);
 }
 

@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/trees');
 });
 
 Route::resource('/trees','TreeController');
+
+Route::get("/trees/destroy/{id}",'TreeController@xd')->name('trees.deleteForm');

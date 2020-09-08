@@ -12,15 +12,15 @@
     <span>{{$tree->text}}</span>
     <div class="element__divider"></div>
     <div class="element__icons">
-        <p>
+        <a>
             <i class="fas fa-plus"></i>
-        </p>
-        <p>
+        </a>
+        <a>
             <i class="fas fa-edit"></i>
-        </p>
-         <p>
+        </a>
+         <a href={{route("trees.destroy",['tree'=>$tree->id])}}>
             <i class="fas fa-trash"></i>
-        </p>
+        </a>
     </div>
 </div>
     @foreach ($treeChildren as $tc)
@@ -36,15 +36,15 @@
     <span>{{$tree->text}}</span>
     <div class="element__divider"></div>
     <div class="element__icons">
-        <p>
+        <a>
             <i class="fas fa-plus"></i>
-        </p>
-        <p>
+        </a>
+        <a>
             <i class="fas fa-edit"></i>
-        </p>
-         <p>
+        </a>
+         <a>
             <i class="fas fa-trash"></i>
-        </p>
+        </a>
     </div>
 </div>
 @endif
