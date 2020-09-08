@@ -19,4 +19,6 @@ Route::get('/', function () {
 
 Route::resource('/trees','TreeController');
 
-Route::get("/trees/destroy/{id}",'TreeController@xd')->name('trees.deleteForm');
+Route::get("/trees/createChildren/{id}",'TreeController@createChildren')->name('trees.createChildren');
+
+Route::get("/trees/destroy/{id}",'TreeController@deleteForm')->name('trees.deleteForm'); 

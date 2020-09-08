@@ -27,6 +27,16 @@ class TreeController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createChildren($id)
+    {
+        return view('trees.createChildren',['id'=>$id]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -39,10 +49,11 @@ class TreeController extends Controller
         ]);
 
         $text = $request->input('text','Tree text');
+        $id = $request->input('id',null);
 
         $tree = new Tree();
         $tree->text = $text;
-        $tree->parentID = null;
+        $tree->parentID = $id;
         $tree->save();
 
         return redirect()->route('trees.index', ['trees' => Tree::all()]);
@@ -92,7 +103,8 @@ class TreeController extends Controller
      */
     public function deleteForm(Request $request, $id)
     {
-        return view("trees.delete");
+        $tree = Tree::findOrFail($id);
+        return view("trees.delete",['tree'=> $tree]);
     }
 
     

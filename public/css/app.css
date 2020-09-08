@@ -36,6 +36,10 @@
   height: 200px;
 }
 
+.wrapper__warning {
+  color: red;
+}
+
 .wrapper__input {
   padding: 1rem;
   width: 80%;

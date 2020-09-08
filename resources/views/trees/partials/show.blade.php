@@ -1,6 +1,7 @@
 @php
-   $children = $tree->children()->get()->toArray();
    $treeChildren = $tree->children()->get();
+
+   $children = $tree->children()->get()->toArray();
    $filteredChildren = array_filter($children,function($element){
        return $element['parentID']!=null;
    }); 
@@ -12,13 +13,13 @@
     <span>{{$tree->text}}</span>
     <div class="element__divider"></div>
     <div class="element__icons">
-        <a>
+    <a href="{{route("trees.createChildren",['id'=>$tree->id])}}">
             <i class="fas fa-plus"></i>
         </a>
         <a>
             <i class="fas fa-edit"></i>
         </a>
-         <a href={{route("trees.destroy",['tree'=>$tree->id])}}>
+         <a href={{route("trees.deleteForm",['id'=>$tree->id])}}>
             <i class="fas fa-trash"></i>
         </a>
     </div>
@@ -36,13 +37,13 @@
     <span>{{$tree->text}}</span>
     <div class="element__divider"></div>
     <div class="element__icons">
-        <a>
+        <a href="{{route("trees.createChildren",['id'=>$tree->id])}}">
             <i class="fas fa-plus"></i>
         </a>
         <a>
             <i class="fas fa-edit"></i>
         </a>
-         <a>
+         <a href={{route("trees.deleteForm",['id'=>$tree->id])}}>
             <i class="fas fa-trash"></i>
         </a>
     </div>
