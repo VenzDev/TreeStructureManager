@@ -7,17 +7,16 @@
     <form class="wrapper__form" method="POST" action="{{ route('trees.update',['tree'=>$tree->id]) }}">
         @csrf
         @method("PUT")
-        <div class="wrapper__input">
+        <div class="wrapper__inputs">
             <label>ELement Name</label>
             <br>
-            <input value={{$tree->text}} type="text" name="text"/>
-            <br>
+            <input value="{{$tree->text}}" type="text" name="text"/>
             <label>Parent</label>
             <br>
             <select name="select" id="select">
-                <option value="root">Root Element</option>
+                <option {{$tree->parentID == null ? "selected" : "" }} value="root">No parent (Root)</option>
                 @foreach ($selectTree as $t)
-                    <option value={{$t->id}}>{{$t->text}}</option>
+                    <option {{$tree->parentID == $t->id ? "selected" : "" }} value={{$t->id}}>{{$t->text}}</option>
                 @endforeach    
             </select>            
         </div>

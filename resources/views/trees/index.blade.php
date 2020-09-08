@@ -5,7 +5,7 @@
         <a href={{route('trees.create')}} class="wrapper__button">Add New Root</a>
         @foreach ($trees as $tree) 
             @if($tree->parentID ==null)
-                @include('trees.partials.show',['tree'=> $tree])
+                @include('trees.partials.showTrees',['tree'=> $tree])
             @endif
         @endforeach
     </div>

@@ -33,7 +33,8 @@ class TreeController extends Controller
      */
     public function createChildren($id)
     {
-        return view('trees.createChildren',['id'=>$id]);
+        $tree = Tree::findOrFail($id);
+        return view('trees.createChildren',['tree'=>$tree]);
     }
 
     /**
@@ -91,14 +92,19 @@ class TreeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $text = $request->input('select','Tree text');
-        $parentID = null;
+        $request->validate([
+            'text' => 'required|max:50',
+        ]);
+
+        $parentID = $request->input('select','Tree text');
+        $text = $request->input('text');
         $treeToUpdate = Tree::find($id);
-        if($text == 'root'){
+        if($parentID == 'root'){
             $treeToUpdate->parentID = null;
         } else {
-            $treeToUpdate->parentID = (int)$text;
+            $treeToUpdate->parentID = (int)$parentID;
         }
+        $treeToUpdate->text = $text;
         $treeToUpdate->save();
 
         return redirect()->route("trees.index",['trees'=>Tree::all()]);

@@ -20,6 +20,26 @@
   background-color: #f3f5f8;
 }
 
+.wrapper__button {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  text-align: center;
+  border-radius: 23px;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 255, 0.3);
+  transition: 0.2s;
+}
+
+.wrapper__button:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 255, 0.6);
+}
+
 .wrapper__title {
   text-align: center;
   text-transform: capitalize;
@@ -33,55 +53,45 @@
   width: 400px;
   border-radius: 10px;
   background-color: white;
-  height: 200px;
+}
+
+.wrapper__form > h4,
+.wrapper__form > p {
+  margin-bottom: 0.5rem;
 }
 
 .wrapper__warning {
   color: red;
 }
 
-.wrapper__input {
+.wrapper__inputs {
   padding: 1rem;
   width: 80%;
   margin: 0 auto;
 }
 
-.wrapper__input label {
+.wrapper__inputs label {
   padding-left: 1rem;
   font-size: 0.8rem;
 }
 
-.wrapper__input input {
+.wrapper__inputs input,
+.wrapper__inputs select {
   width: 100%;
+  margin-bottom: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   border: 1px solid gray;
 }
 
-.wrapper__input button {
+.wrapper__inputs select {
+  padding-left: 0.8rem;
+}
+
+.wrapper__inputs button {
   width: 100px;
   height: 40px;
   line-height: 40px;
-}
-
-.wrapper__button {
-  display: block;
-  margin: 0 auto;
-  border: none;
-  text-align: center;
-  border-radius: 23px;
-  background-color: blue;
-  color: white;
-  cursor: pointer;
-  width: 120px;
-  height: 50px;
-  line-height: 50px;
-  box-shadow: 0px 6px 12px rgba(0, 0, 255, 0.3);
-  transition: 0.2s;
-}
-
-.wrapper__button:hover {
-  box-shadow: 0px 6px 12px rgba(0, 0, 255, 0.6);
 }
 
 .wrapper .element {

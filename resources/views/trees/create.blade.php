@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="wrapper">
-        <h2 class="wrapper__title">create Tree</h2>
+        <h2 class="wrapper__title">create Root Element</h2>
         <form class="wrapper__form" method="POST" action="{{ route('trees.store') }}">
             @csrf
-            <div class="wrapper__input">
+            <div class="wrapper__inputs">
                 <label>ELement Name</label>
                 <br>
                 <input type="text" name="text"/>

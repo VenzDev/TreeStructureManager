@@ -2,15 +2,15 @@
 
 @section('content')
     <div class="wrapper">
-        <h2 class="wrapper__title">create Tree</h2>
+        <h2 class="wrapper__title">create Children</h2>
         <form class="wrapper__form" method="POST" action="{{ route('trees.store') }}">
             @csrf
-            <p>Parent</p>
-            <div class="wrapper__input">
+        <p>Parent: <span>{{$tree->text}}</span></p>
+            <div class="wrapper__inputs">
                 <label>ELement Name</label>
                 <br>
                 <input type="text" name="text"/>
-                <input name="id" type="hidden" value={{$id}}>
+                <input name="id" type="hidden" value={{$tree->id}}>
             </div>
             <button class="wrapper__button" type="submit">Create!</button>
         </form>
