@@ -74,6 +74,16 @@
         }
     }
 
+    &__message {
+        height: 40px;
+        line-height: 40px;
+        background-color: blue;
+        color: white;
+        border-radius: 10px;
+        display: inline-block;
+        padding: 0 1rem;
+    }
+
     .element {
         background-color: $color-white;
         display: flex;
