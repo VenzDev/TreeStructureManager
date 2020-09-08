@@ -16,7 +16,7 @@
     <a href="{{route("trees.createChildren",['id'=>$tree->id])}}">
             <i class="fas fa-plus"></i>
         </a>
-        <a>
+        <a href="{{route("trees.edit",['tree'=>$tree->id])}}">
             <i class="fas fa-edit"></i>
         </a>
          <a href={{route("trees.deleteForm",['id'=>$tree->id])}}>
@@ -40,7 +40,7 @@
         <a href="{{route("trees.createChildren",['id'=>$tree->id])}}">
             <i class="fas fa-plus"></i>
         </a>
-        <a>
+        <a href="{{route("trees.edit",['tree'=>$tree->id])}}">
             <i class="fas fa-edit"></i>
         </a>
          <a href={{route("trees.deleteForm",['id'=>$tree->id])}}>

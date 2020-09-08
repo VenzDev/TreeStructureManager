@@ -78,7 +78,8 @@ class TreeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tree = Tree::findOrFail($id);
+        return view("trees.edit",['tree'=> $tree,'selectTree'=> $this->getChildrenForSelect($id)]);
     }
 
     /**
@@ -90,7 +91,17 @@ class TreeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $text = $request->input('select','Tree text');
+        $parentID = null;
+        $treeToUpdate = Tree::find($id);
+        if($text == 'root'){
+            $treeToUpdate->parentID = null;
+        } else {
+            $treeToUpdate->parentID = (int)$text;
+        }
+        $treeToUpdate->save();
+
+        return redirect()->route("trees.index",['trees'=>Tree::all()]);
     }
 
     
@@ -131,5 +142,26 @@ class TreeController extends Controller
             }
         }
         $tree->delete();
+    }
+
+    private function getChildrenForSelect($id){
+        $list = $this->deleteChildrenFromLIst(Tree::all(),Tree::find($id));
+
+        return $list->filter(function($item) use (&$id){
+            return $item->id !=$id;
+        });
+    }
+
+    private function deleteChildrenFromLIst($treeList,$tree){
+        $treeChildren = $tree->children()->get();
+        foreach($treeChildren as $t){
+            if(count($treeChildren)> 0 && $t->id!=$tree->id){
+                $treeList = $this->deleteChildrenFromLIst($treeList,$t);
+            }
+            $treeList = $treeList->filter(function($item) use (&$t){
+                return $item->id!=$t->id;
+            });
+        }
+        return $treeList;
     }
 }
