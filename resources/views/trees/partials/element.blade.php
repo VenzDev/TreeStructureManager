@@ -1,8 +1,8 @@
 <div  class="element" id={{$id}} onclick="toggleChildren(event)">
     @if ($haveChildren)
-        <i class="far fa-circle"></i>
-    @else
         <i class="fas fa-angle-down"></i>
+    @else
+        <i class="far fa-circle"></i>
     @endif
     <span>{{$text}}</span>
     <div class="element__divider"></div>

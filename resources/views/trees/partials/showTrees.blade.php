@@ -8,7 +8,7 @@
 @endphp
 
 @if(count($filteredChildren) > 0)
-    @include('trees.partials.element',['id'=>$tree->id,'text'=>$tree->text,'haveChildren'=>false])
+    @include('trees.partials.element',['id'=>$tree->id,'text'=>$tree->text,'haveChildren'=>true])
     @foreach ($treeChildren as $tc)
         @if($tc->parentID !=null)
             <div class="nested" id={{$tree->id}}>
@@ -17,5 +17,5 @@
         @endif
     @endforeach
 @else 
-    @include('trees.partials.element',['id'=>$tree->id,'text'=>$tree->text,'haveChildren'=>true])
+    @include('trees.partials.element',['id'=>$tree->id,'text'=>$tree->text,'haveChildren'=>false])
 @endif

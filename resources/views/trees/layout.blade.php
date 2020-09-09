@@ -16,6 +16,9 @@
         function toggleChildren(e){
             let id = e.target.parentElement.id;
 
+            let arrowIcon = e.target.parentElement.childNodes[1];
+            rotateArrow(arrowIcon);
+
             let children = [...document.getElementsByClassName("nested")];
 
             children = children.filter(child => child.id === id );
@@ -27,6 +30,14 @@
                     child.style.display = "none";
                 }
             })
+        }
+
+        function rotateArrow(arrowIcon){
+            if(arrowIcon.style.transform === ''){
+                arrowIcon.style.transform = 'rotate(-90deg)';
+            }else {
+                arrowIcon.style.transform = '';
+            }  
         }
     </script>
 </body>
