@@ -1,4 +1,4 @@
-<div class="element">
+<div  class="element" id={{$id}} onclick="toggleChildren(event)">
     @if ($haveChildren)
         <i class="far fa-circle"></i>
     @else
@@ -18,3 +18,5 @@
         </a>
     </div>
 </div>
+
+

@@ -11,7 +11,7 @@
     @include('trees.partials.element',['id'=>$tree->id,'text'=>$tree->text,'haveChildren'=>false])
     @foreach ($treeChildren as $tc)
         @if($tc->parentID !=null)
-            <div class="nested">
+            <div class="nested" id={{$tree->id}}>
                 @include('trees.partials.showTrees',['tree'=> $tc])
             </div>
         @endif

@@ -11,5 +11,23 @@
 </head>
 <body>
     @yield('content')
+
+    <script>
+        function toggleChildren(e){
+            let id = e.target.parentElement.id;
+
+            let children = [...document.getElementsByClassName("nested")];
+
+            children = children.filter(child => child.id === id );
+
+            children.forEach(child => {
+                if (child.style.display === "none") {
+                    child.style.display = "block";
+                } else {
+                    child.style.display = "none";
+                }
+            })
+        }
+    </script>
 </body>
 </html>

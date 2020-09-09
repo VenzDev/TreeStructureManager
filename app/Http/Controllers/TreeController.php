@@ -33,7 +33,7 @@ class TreeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'text' => 'required|max:50',
+            'text' => 'required|min:3|max:50',
         ]);
 
         $text = $request->input('text','Tree text');
@@ -49,11 +49,6 @@ class TreeController extends Controller
         return redirect()->route('trees.index', ['trees' => Tree::all()]);
     }
 
-    public function show($id)
-    {
-        //
-    }
-
     //Display form for editing element
     //GET: /trees/{treeId}/edit
     public function edit($id)
@@ -67,17 +62,19 @@ class TreeController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'text' => 'required|max:50',
+            'text' => 'required|min:3|max:50',
         ]);
 
         $parentID = $request->input('select','Tree text');
         $text = $request->input('text');
         $treeToUpdate = Tree::find($id);
+
         if($parentID == 'root'){
             $treeToUpdate->parentID = null;
         } else {
             $treeToUpdate->parentID = (int)$parentID;
         }
+
         $treeToUpdate->text = $text;
         $treeToUpdate->save();
 
@@ -130,14 +127,19 @@ class TreeController extends Controller
     //Recursive deleting children from list
     private function deleteChildrenFromLIst($treeList,$tree){
         $treeChildren = $tree->children()->get();
-        foreach($treeChildren as $t){
-            if(count($treeChildren)> 0 && $t->id!=$tree->id){
-                $treeList = $this->deleteChildrenFromLIst($treeList,$t);
+
+        foreach($treeChildren as $child){
+
+            if(count($treeChildren)> 0 && $child->id!=$tree->id){
+                $treeList = $this->deleteChildrenFromLIst($treeList,$child);
             }
-            $treeList = $treeList->filter(function($item) use (&$t){
-                return $item->id!=$t->id;
+            
+            $treeList = $treeList->filter(function($el) use (&$child){
+                return $el->id!=$child->id;
             });
+
         }
+
         return $treeList;
     }
 

@@ -17,7 +17,7 @@ Route::get('/', function () {
     return redirect('/trees');
 });
 
-Route::resource('/trees','TreeController');
+Route::resource('/trees','TreeController')->except(['show']);
 
 Route::get("/trees/createChildren/{id}",'TreeController@createChildren')->name('trees.createChildren');
 
