@@ -124,6 +124,7 @@ class TreeController extends Controller
             return $item->id !=$id;
         });
     }
+
     //Recursive deleting children from list
     private function deleteChildrenFromLIst($treeList,$tree){
         $treeChildren = $tree->children()->get();
@@ -139,7 +140,7 @@ class TreeController extends Controller
             });
 
         }
-
+        
         return $treeList;
     }
 

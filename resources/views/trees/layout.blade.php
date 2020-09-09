@@ -14,22 +14,24 @@
 
     <script>
         function toggleChildren(e){
-            let id = e.target.parentElement.id;
+            if(e.target.tagName.toLowerCase() === 'span'){
+                let id = e.target.parentElement.id;
 
-            let arrowIcon = e.target.parentElement.childNodes[1];
-            rotateArrow(arrowIcon);
+                let arrowIcon = e.target.parentElement.childNodes[1];
+                rotateArrow(arrowIcon);
 
-            let children = [...document.getElementsByClassName("nested")];
+                let children = [...document.getElementsByClassName("nested")];
 
-            children = children.filter(child => child.id === id );
+                children = children.filter(child => child.id === id );
 
-            children.forEach(child => {
-                if (child.style.display === "none") {
-                    child.style.display = "block";
-                } else {
-                    child.style.display = "none";
-                }
-            })
+                children.forEach(child => {
+                    if (child.style.display === "none") {
+                        child.style.display = "block";
+                    } else {
+                        child.style.display = "none";
+                    }
+                })
+            }
         }
 
         function rotateArrow(arrowIcon){
