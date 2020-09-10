@@ -13,6 +13,17 @@
     @yield('content')
 
     <script>
+
+        function toggleSortOptions(e){
+            const sortOptions = document.getElementById("sortOptions");
+
+            if (sortOptions.style.display === "none" || sortOptions.style.display === '') {
+                sortOptions.style.display = "block";
+            } else {
+                sortOptions.style.display = "none";
+            }
+        }
+
         function toggleChildren(e){
             if(e.target.tagName.toLowerCase() === 'span'){
                 let id = e.target.parentElement.id;

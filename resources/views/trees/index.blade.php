@@ -46,10 +46,16 @@
             </div>
         @endif
 
-        <div>
-        @foreach ($sortOptions as $key => $option)
-            <button onclick="window.location='{{route('trees.index',['trees'=>$trees,'sort'=>$key])}}'">{{$option}}</button>   
-        @endforeach
+        <div class="wrapper__sortOptions" onclick="toggleSortOptions(event)">
+            <button class="wrapper__sortByButton">sort By</button>
+            <div id="sortOptions">
+                @foreach ($sortOptions as $key => $option)
+                    <button 
+                        onclick="window.location='{{route('trees.index',['trees'=>$trees,'sort'=>$key])}}'">
+                        {{$option}}
+                    </button>   
+                @endforeach
+            </div>
         </div>
 
         @foreach ($trees as $tree) 

@@ -65,6 +65,52 @@
   color: red;
 }
 
+.wrapper__sortOptions {
+  position: relative;
+  width: 200px;
+}
+
+.wrapper__sortOptions > button {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  text-align: center;
+  border-radius: 23px;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 255, 0.3);
+  transition: 0.2s;
+  margin-bottom: 10px;
+}
+
+.wrapper__sortOptions > button:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 255, 0.7);
+}
+
+.wrapper__sortOptions > div {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+
+.wrapper__sortOptions > div > button {
+  padding: 5px;
+  background-color: white;
+  width: 100%;
+  border: 1px solid gray;
+  display: block;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.wrapper__sortOptions > div > button:hover {
+  color: blue;
+}
+
 .wrapper__inputs {
   padding: 1rem;
   width: 80%;
