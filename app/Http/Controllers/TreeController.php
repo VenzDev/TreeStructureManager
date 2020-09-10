@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tree;
+
 class TreeController extends Controller
 {
     //Display home page
@@ -126,7 +127,7 @@ class TreeController extends Controller
     }
 
     //Recursive deleting children from list
-    private function deleteChildrenFromLIst($treeList,$tree){
+    private function deleteChildrenFromLIst( $treeList,$tree){
         $treeChildren = $tree->children()->get();
 
         foreach($treeChildren as $child){
